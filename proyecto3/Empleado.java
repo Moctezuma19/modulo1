@@ -8,11 +8,14 @@ import java.util.Random;
 
 public class Empleado{
 
+	private static int EMPLEADOS;
+
 	private String nombre;
 	private String apellido;
 	private double salarioMensual;
 
 	public Empleado(String nombre, String apellido, double salarioMensual){
+		EMPLEADOS++;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.salarioMensual = salarioMensual;
@@ -40,6 +43,14 @@ public class Empleado{
 	public double obtenSalarioMensual(){
 		return this.salarioMensual;
 	}
+	//metodo para ver la cantidad de empleados
+	public static int obtenEmpleados(){
+		return EMPLEADOS;
+	}
+
+	public static void cambiaEmpleados(int empleados){
+		EMPLEADOS = empleados;
+	}
 
 	@Override
 	public String toString(){
@@ -54,6 +65,8 @@ public class Empleado{
 		randomValue = 1.0 + (10000.0 - 1.0) * r.nextDouble();
 		Empleado e2 = new Empleado("Garrus","Vakarian",randomValue);
 		System.out.println(e2);
+
+		System.out.println("Cantidad de empleados: " + Empleado.obtenEmpleados());
 
 		e1.cambiaSalarioMensual(e1.obtenSalarioMensual() * 1.1);
 		e2.cambiaSalarioMensual(e2.obtenSalarioMensual() * 1.1);
