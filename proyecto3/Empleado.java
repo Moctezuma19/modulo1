@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Empleado{
 
-	private static int EMPLEADOS;
+	private static int EMPLEADOS = 0;
 
 	private String nombre;
 	private String apellido;
